@@ -49,6 +49,8 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     // Timer Running State
     var isTimerRunning:Bool = false
     
+    // Option IndexPaths
+    var indexPaths: [IndexPath] = []
    
     @IBOutlet weak var optionsCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -85,6 +87,8 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             generateNewTarget()
             currValue = 0
             currValueLbl.text = "0"
+            totalPoints += 1
+            currPointsLbl.text = "\(totalPoints)"
             resetOptions()
         }
     }
@@ -93,6 +97,7 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         currTimeLeft = gameTimeAmount
         currValue = 0
         currValueLbl.text = "\(currValue)"
+        currPointsLbl.text = "\(totalPoints)"
         timeRemainingLbl.text = timeToString(time: TimeInterval(gameTimeAmount))
         generateNewTarget()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(GameVC.updateTimer)), userInfo: nil, repeats: true)
@@ -104,11 +109,13 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         endGame()
         startGame()
         resetOptions()
+        totalPoints = 0
+        currPointsLbl.text = "\(totalPoints)"
     }
     
     func resetOptions() {
-        for cell in optionsCollectionView.visibleCells {
-            let myCell = cell as! OptionCell
+        for i in 0...9 {
+            let myCell = optionsCollectionView.cellForItem(at: indexPaths[i]) as! OptionCell
             myCell.backgroundColor = UIColor(displayP3Red: 35/255, green: 48/255, blue: 63/255, alpha: 1)
             myCell.layer.borderColor = UIColor(displayP3Red: 118/255, green: 141/255, blue: 168/255, alpha: 1).cgColor
             myCell.optionLabel.textColor = UIColor(displayP3Red: 118/255, green: 141/255, blue: 168/255, alpha: 1)
@@ -140,6 +147,7 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         cell.layer.borderColor = UIColor(displayP3Red: 118/255, green: 141/255, blue: 168/255, alpha: 1).cgColor
         cell.layer.cornerRadius = cell.frame.width*0.5
         cell.optionLabel.text = "\(options[indexPath.item])"
+        indexPaths.append(indexPath)
         
         return cell
     }
