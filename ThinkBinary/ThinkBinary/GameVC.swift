@@ -10,17 +10,82 @@ import UIKit
 
 class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
+    // Outlets
+    @IBOutlet weak var currPointsLbl: UILabel!
+    @IBOutlet weak var timeRemainingLbl: UILabel!
+    @IBOutlet weak var targetValueLbl: UILabel!
+    @IBOutlet weak var currValueLbl: UILabel!
+    @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var restartButton: UIButton!
+    
+    
+    // Array of binary numbers to choose from
     let options: [Int] = [1,2,4,8,16,32,64,128,256,512]
+    
+    // Current Selected Value: Default to 0
+    var currValue:Int = 0
+    
+    // Current Target Value
+    var targetValue:Int = 0
+    
+    // Number of Seconds in a Game
+    let gameTimeAmount:Int = 60
+    
+    // Current Time Left in Game
+    var currTimeLeft:Int = 0
+    
+    // Timer
+    var timer:Timer = Timer()
+    
+    // Timer Running State
+    var isTimerRunning:Bool = false
     
    
     @IBOutlet weak var optionsCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        // Do any additional setup after loading the view.
+        startGame()
     }
-
+    
+    @IBAction func didTapHome(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+        endGame()
+    }
+    
+    @IBAction func didTapRestart(_ sender: UIButton) {
+        restart()
+    }
+    
+    @objc func updateTimer() {
+        if (currTimeLeft > 0) {
+            currTimeLeft -= 1
+            timeRemainingLbl.text = timeToString(time: TimeInterval(currTimeLeft))
+        } else {
+            endGame()
+        }
+    }
+    
+    func startGame() {
+        currTimeLeft = gameTimeAmount
+        timeRemainingLbl.text = timeToString(time: TimeInterval(gameTimeAmount))
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(GameVC.updateTimer)), userInfo: nil, repeats: true)
+    }
+    func endGame() {
+        timer.invalidate()
+    }
+    func restart() {
+        endGame()
+        startGame()
+    }
+    
+    func timeToString(time:TimeInterval) -> String {
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format: "%02i:%02i", arguments: [minutes, seconds])
+    }
+    
+    
+    // Collection View Delegate Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return options.count
     }

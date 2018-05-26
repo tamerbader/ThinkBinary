@@ -110,7 +110,7 @@
                                         <color key="textColor" red="0.46274509800000002" green="0.55294117649999996" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WV-y8-OAs">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WV-y8-OAs">
                                         <rect key="frame" x="272" y="74.666666666666671" width="56.333333333333314" height="33"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
                                         <color key="textColor" red="0.96862745100000003" green="0.76470588240000004" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -156,10 +156,16 @@
                                             <constraint firstAttribute="width" secondItem="Oxb-XJ-Mal" secondAttribute="height" multiplier="1:1" id="WQe-fG-3nZ"/>
                                         </constraints>
                                         <state key="normal" image="home"/>
+                                        <connections>
+                                            <action selector="didTapHome:" destination="DsV-1U-o42" eventType="touchUpInside" id="4Df-Yc-1PV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ip-bg-evH">
                                         <rect key="frame" x="315" y="390" width="26" height="26"/>
                                         <state key="normal" image="redo"/>
+                                        <connections>
+                                            <action selector="didTapRestart:" destination="DsV-1U-o42" eventType="touchUpInside" id="adp-TB-7e2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -249,7 +255,13 @@
                         <viewLayoutGuide key="safeArea" id="g7B-JF-XYp"/>
                     </view>
                     <connections>
+                        <outlet property="currPointsLbl" destination="QVK-9h-den" id="a1r-fb-jAm"/>
+                        <outlet property="currValueLbl" destination="Yga-XD-KH8" id="TC1-je-fir"/>
+                        <outlet property="homeButton" destination="Oxb-XJ-Mal" id="BBB-Yx-kVU"/>
                         <outlet property="optionsCollectionView" destination="fDI-ZR-7ZS" id="msc-0g-cdi"/>
+                        <outlet property="restartButton" destination="2ip-bg-evH" id="2Ql-yn-QaZ"/>
+                        <outlet property="targetValueLbl" destination="nJt-8T-2zZ" id="j4E-v6-S1a"/>
+                        <outlet property="timeRemainingLbl" destination="2WV-y8-OAs" id="F4y-Hm-Mzt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6p-up-G72" userLabel="First Responder" sceneMemberID="firstResponder"/>
