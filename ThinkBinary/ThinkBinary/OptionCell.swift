@@ -11,5 +11,5 @@ import UIKit
 class OptionCell: UICollectionViewCell {
     
     @IBOutlet weak var optionLabel: UILabel!
-    
+    var isTapped:Bool = false
 }
