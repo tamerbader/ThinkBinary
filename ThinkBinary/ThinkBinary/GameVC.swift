@@ -22,11 +22,14 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     // Array of binary numbers to choose from
     let options: [Int] = [1,2,4,8,16,32,64,128,256,512]
     
+    // Array of currently being played options
+    var currOptions: [Int] = [1,2,4,8,16]
+    
     // Maximum Values
     let maxValues: [Int] = [1,3,7,15,31,63,127,255,511,1023]
     
     // Hardness Level Unlocks
-    var hardnessLevel:Int = 5
+    var hardnessLevel:Int = 4
     
     // Current Selected Value: Default to 0
     var currValue:Int = 0
@@ -58,6 +61,10 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         startGame()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     @IBAction func didTapHome(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
         endGame()
@@ -84,12 +91,17 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         }
         currValueLbl.text = "\(currValue)"
         if(currValue == targetValue) {
-            generateNewTarget()
+            resetOptions()
             currValue = 0
             currValueLbl.text = "0"
             totalPoints += 1
             currPointsLbl.text = "\(totalPoints)"
-            resetOptions()
+            
+            if (totalPoints % 5 == 0) {
+                nextLevel()
+                currTimeLeft += 30
+            }
+            generateNewTarget()
         }
     }
     
@@ -107,21 +119,32 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     func restart() {
         endGame()
-        startGame()
         resetOptions()
         totalPoints = 0
         currPointsLbl.text = "\(totalPoints)"
+        hardnessLevel = 4
+        currOptions = [1,2,4,8,16]
+        indexPaths.removeAll()
+        optionsCollectionView.reloadData()
+        startGame()
+    }
+    
+    func nextLevel() {
+        hardnessLevel += 1
+        currOptions.append(options[hardnessLevel])
+        indexPaths.removeAll()
+        optionsCollectionView.reloadData()
+        
     }
     
     func resetOptions() {
-        for i in 0...9 {
+        for i in 0...currOptions.count - 1 {
             let myCell = optionsCollectionView.cellForItem(at: indexPaths[i]) as! OptionCell
-            myCell.backgroundColor = UIColor(displayP3Red: 35/255, green: 48/255, blue: 63/255, alpha: 1)
-            myCell.layer.borderColor = UIColor(displayP3Red: 118/255, green: 141/255, blue: 168/255, alpha: 1).cgColor
-            myCell.optionLabel.textColor = UIColor(displayP3Red: 118/255, green: 141/255, blue: 168/255, alpha: 1)
+            myCell.backgroundColor = UIColor.white
+            myCell.layer.borderColor = UIColor.mediumGreen.cgColor
+            myCell.optionLabel.textColor = UIColor.mediumGreen
             myCell.isTapped = false
         }
-        //optionsCollectionView.reloadData()
     }
     
     func generateNewTarget() {
@@ -138,16 +161,17 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     // Collection View Delegate Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return options.count
+        return currOptions.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:OptionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "optionCell", for: indexPath) as! OptionCell
-        cell.backgroundColor = UIColor(displayP3Red: 35/255, green: 48/255, blue: 63/255, alpha: 1)
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor(displayP3Red: 118/255, green: 141/255, blue: 168/255, alpha: 1).cgColor
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderWidth = 2
+        cell.layer.borderColor = UIColor.mediumGreen.cgColor
         cell.layer.cornerRadius = cell.frame.width*0.5
         cell.optionLabel.text = "\(options[indexPath.item])"
+        cell.optionLabel.textColor = UIColor.mediumGreen
         indexPaths.append(indexPath)
         
         return cell
@@ -174,15 +198,15 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell: OptionCell = collectionView.cellForItem(at: indexPath) as! OptionCell
         if (!cell.isTapped) {
-            cell.backgroundColor = UIColor(displayP3Red: 153/255, green: 128/255, blue: 68/255, alpha: 1)
-            cell.layer.borderColor = UIColor(displayP3Red: 200/255, green: 164/255, blue: 76/255, alpha: 1).cgColor
-            cell.optionLabel.textColor =  UIColor(displayP3Red: 200/255, green: 164/255, blue: 76/255, alpha: 1)
+            cell.backgroundColor = UIColor.mediumGreen
+            cell.layer.borderColor = UIColor.white.cgColor
+            cell.optionLabel.textColor =  UIColor.white
             cell.isTapped = true
             updateCurrentValue(beingAdded: true, value: options[indexPath.item])
         } else {
-            cell.backgroundColor = UIColor(displayP3Red: 35/255, green: 48/255, blue: 63/255, alpha: 1)
-            cell.layer.borderColor = UIColor(displayP3Red: 118/255, green: 141/255, blue: 168/255, alpha: 1).cgColor
-            cell.optionLabel.textColor = UIColor(displayP3Red: 118/255, green: 141/255, blue: 168/255, alpha: 1)
+            cell.backgroundColor = UIColor.white
+            cell.layer.borderColor = UIColor.mediumGreen.cgColor
+            cell.optionLabel.textColor = UIColor.mediumGreen
             updateCurrentValue(beingAdded: false, value: options[indexPath.item])
             cell.isTapped = false
         }
