@@ -121,6 +121,7 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             myCell.optionLabel.textColor = UIColor(displayP3Red: 118/255, green: 141/255, blue: 168/255, alpha: 1)
             myCell.isTapped = false
         }
+        //optionsCollectionView.reloadData()
     }
     
     func generateNewTarget() {
@@ -176,8 +177,8 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             cell.backgroundColor = UIColor(displayP3Red: 153/255, green: 128/255, blue: 68/255, alpha: 1)
             cell.layer.borderColor = UIColor(displayP3Red: 200/255, green: 164/255, blue: 76/255, alpha: 1).cgColor
             cell.optionLabel.textColor =  UIColor(displayP3Red: 200/255, green: 164/255, blue: 76/255, alpha: 1)
-            updateCurrentValue(beingAdded: true, value: options[indexPath.item])
             cell.isTapped = true
+            updateCurrentValue(beingAdded: true, value: options[indexPath.item])
         } else {
             cell.backgroundColor = UIColor(displayP3Red: 35/255, green: 48/255, blue: 63/255, alpha: 1)
             cell.layer.borderColor = UIColor(displayP3Red: 118/255, green: 141/255, blue: 168/255, alpha: 1).cgColor
