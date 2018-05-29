@@ -103,6 +103,10 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             }
             generateNewTarget()
         }
+        
+        if (currValue > targetValue) {
+            endGame()
+        }
     }
     
     func startGame() {
@@ -116,9 +120,11 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     func endGame() {
         timer.invalidate()
+        resetOptions()
+        self.performSegue(withIdentifier: "gameOver", sender: nil)
     }
     func restart() {
-        endGame()
+        timer.invalidate()
         resetOptions()
         totalPoints = 0
         currPointsLbl.text = "\(totalPoints)"
@@ -156,6 +162,13 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String(format: "%02i:%02i", arguments: [minutes, seconds])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gameOver" {
+            let gameOverVC: GameOverVC = segue.destination as! GameOverVC
+            gameOverVC.finalScoreAmount = totalPoints
+        }
     }
     
     

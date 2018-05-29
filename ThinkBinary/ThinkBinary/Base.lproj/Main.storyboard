@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -38,7 +37,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ThinkBinary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brD-vp-d3N">
                                         <rect key="frame" x="38.5" y="57" width="243.5" height="57.5"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="42"/>
-                                        <color key="textColor" red="0.96862745098039216" green="0.76470588235294112" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -52,14 +51,14 @@
                                 <rect key="frame" x="0.0" y="335.5" width="320" height="86"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="54"/>
                                 <state key="normal" title="START">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8GQ-dP-1jh"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.13333333333333333" green="0.15294117647058825" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.33725490200000002" green="0.87843137250000003" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mjo-ar-JZZ" secondAttribute="trailing" id="DOv-0T-nvf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FRt-lG-dPX" secondAttribute="trailing" id="If2-QW-xi7"/>
@@ -259,26 +258,67 @@
                         <outlet property="restartButton" destination="2ip-bg-evH" id="2Ql-yn-QaZ"/>
                         <outlet property="targetValueLbl" destination="nJt-8T-2zZ" id="j4E-v6-S1a"/>
                         <outlet property="timeRemainingLbl" destination="2WV-y8-OAs" id="F4y-Hm-Mzt"/>
+                        <segue destination="SWw-n2-qnA" kind="show" identifier="gameOver" id="fAg-7y-zsK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6p-up-G72" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="960.79999999999995" y="132.26600985221674"/>
         </scene>
-        <!--View Controller-->
+        <!--Game OverVC-->
         <scene sceneID="JW3-0o-4Rm">
             <objects>
-                <viewController id="SWw-n2-qnA" sceneMemberID="viewController">
+                <viewController id="SWw-n2-qnA" customClass="GameOverVC" customModule="ThinkBinary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eve-jy-ES7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCORE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNG-Z5-XnI">
+                                <rect key="frame" x="94" y="46.5" width="133" height="55"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVi-eW-njA">
+                                <rect key="frame" x="135.5" y="101.5" width="50.5" height="61.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEST SCORE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo0-Hk-7iv">
+                                <rect key="frame" x="85.5" y="174" width="149.5" height="34.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="25"/>
+                                <color key="textColor" red="0.73516201900558009" green="1" blue="0.75380230117742786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDc-1d-x62">
+                                <rect key="frame" x="145" y="208.5" width="31.5" height="38.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="28"/>
+                                <color key="textColor" red="0.735162019" green="1" blue="0.75380230120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.33725490200000002" green="0.87843137250000003" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oo0-Hk-7iv" firstAttribute="centerX" secondItem="w2E-wZ-e5D" secondAttribute="centerX" id="1aX-5l-sRt"/>
+                            <constraint firstItem="oo0-Hk-7iv" firstAttribute="centerY" secondItem="w2E-wZ-e5D" secondAttribute="centerY" multiplier="0.65" id="6cY-0C-7Af"/>
+                            <constraint firstItem="cVi-eW-njA" firstAttribute="top" secondItem="UNG-Z5-XnI" secondAttribute="bottom" id="85F-0Z-h3J"/>
+                            <constraint firstItem="UNG-Z5-XnI" firstAttribute="centerX" secondItem="w2E-wZ-e5D" secondAttribute="centerX" id="AuE-Cf-EcT"/>
+                            <constraint firstItem="dDc-1d-x62" firstAttribute="centerX" secondItem="oo0-Hk-7iv" secondAttribute="centerX" id="Qzp-Rc-u0c"/>
+                            <constraint firstItem="dDc-1d-x62" firstAttribute="top" secondItem="oo0-Hk-7iv" secondAttribute="bottom" id="qWV-kq-SmN"/>
+                            <constraint firstItem="cVi-eW-njA" firstAttribute="centerX" secondItem="UNG-Z5-XnI" secondAttribute="centerX" id="ses-6G-3kk"/>
+                            <constraint firstItem="UNG-Z5-XnI" firstAttribute="centerY" secondItem="w2E-wZ-e5D" secondAttribute="centerY" multiplier="0.25" id="yhU-GO-8oh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="w2E-wZ-e5D"/>
                     </view>
+                    <connections>
+                        <outlet property="bestScoreLbl" destination="dDc-1d-x62" id="hRr-S2-teG"/>
+                        <outlet property="finalScoreLbl" destination="cVi-eW-njA" id="SZn-3l-B83"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnB-YG-UhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1778" y="129"/>
+            <point key="canvasLocation" x="1777.5" y="128.87323943661971"/>
         </scene>
     </scenes>
     <resources>
