@@ -17,6 +17,8 @@
 		363B91D320B91CDD004D0B11 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363B91D220B91CDD004D0B11 /* GameVC.swift */; };
 		363B91D520B925F1004D0B11 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363B91D420B925F1004D0B11 /* OptionCell.swift */; };
 		363B91D720BB41BF004D0B11 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363B91D620BB41BF004D0B11 /* UIColor+Extension.swift */; };
+		365E7799212117DE004D8EED /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E7798212117DE004D8EED /* GameManager.swift */; };
+		365E779B21211860004D8EED /* GameDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E779A21211860004D8EED /* GameDefs.swift */; };
 		36BB34F420BD0993002A4826 /* GameOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB34F320BD0993002A4826 /* GameOverVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		363B91D220B91CDD004D0B11 /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		363B91D420B925F1004D0B11 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		363B91D620BB41BF004D0B11 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		365E7798212117DE004D8EED /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		365E779A21211860004D8EED /* GameDefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDefs.swift; sourceTree = "<group>"; };
 		36BB34F320BD0993002A4826 /* GameOverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,16 +109,15 @@
 		363B91A120B91887004D0B11 /* ThinkBinary */ = {
 			isa = PBXGroup;
 			children = (
+				365E7797212117BE004D8EED /* AdditionalResources */,
+				365E779621211781004D8EED /* Controllers */,
+				365E779521211771004D8EED /* Models */,
 				363B91A220B91887004D0B11 /* AppDelegate.swift */,
 				363B91A620B91887004D0B11 /* Main.storyboard */,
 				363B91A920B91887004D0B11 /* Assets.xcassets */,
 				363B91AB20B91887004D0B11 /* LaunchScreen.storyboard */,
 				363B91AE20B91887004D0B11 /* Info.plist */,
-				363B91D020B9194F004D0B11 /* HomeVC.swift */,
-				363B91D220B91CDD004D0B11 /* GameVC.swift */,
-				363B91D420B925F1004D0B11 /* OptionCell.swift */,
 				363B91D620BB41BF004D0B11 /* UIColor+Extension.swift */,
-				36BB34F320BD0993002A4826 /* GameOverVC.swift */,
 			);
 			path = ThinkBinary;
 			sourceTree = "<group>";
@@ -135,6 +138,33 @@
 				363B91C420B91887004D0B11 /* Info.plist */,
 			);
 			path = ThinkBinaryUITests;
+			sourceTree = "<group>";
+		};
+		365E779521211771004D8EED /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				363B91D420B925F1004D0B11 /* OptionCell.swift */,
+				365E7798212117DE004D8EED /* GameManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		365E779621211781004D8EED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				363B91D020B9194F004D0B11 /* HomeVC.swift */,
+				363B91D220B91CDD004D0B11 /* GameVC.swift */,
+				36BB34F320BD0993002A4826 /* GameOverVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		365E7797212117BE004D8EED /* AdditionalResources */ = {
+			isa = PBXGroup;
+			children = (
+				365E779A21211860004D8EED /* GameDefs.swift */,
+			);
+			path = AdditionalResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +304,8 @@
 				363B91D520B925F1004D0B11 /* OptionCell.swift in Sources */,
 				363B91A320B91887004D0B11 /* AppDelegate.swift in Sources */,
 				36BB34F420BD0993002A4826 /* GameOverVC.swift in Sources */,
+				365E779B21211860004D8EED /* GameDefs.swift in Sources */,
+				365E7799212117DE004D8EED /* GameManager.swift in Sources */,
 				363B91D320B91CDD004D0B11 /* GameVC.swift in Sources */,
 				363B91D120B9194F004D0B11 /* HomeVC.swift in Sources */,
 				363B91D720BB41BF004D0B11 /* UIColor+Extension.swift in Sources */,

@@ -15,11 +15,11 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     @IBAction func didTapStart(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToGame", sender: nil)
     }
+    
     
 }
