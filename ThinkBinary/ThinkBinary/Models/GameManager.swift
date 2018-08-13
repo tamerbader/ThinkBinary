@@ -59,6 +59,7 @@ class GameManager {
         self.timer = Timer()
     }
     
+    // Resets Game Information
     func resetGame() {
         self.gameStatus = .OVER
         self.timer.invalidate()
@@ -70,6 +71,7 @@ class GameManager {
         self.currTimeLeft = 0
     }
     
+    // Starts the Game
     func startGame() {
         self.gameStatus = .ACTIVE
         self.currTimeLeft = gameTimeAmount

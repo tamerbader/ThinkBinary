@@ -25,9 +25,6 @@ protocol GameDelegate {
     func endGame(withTotalScore score: Int)
     func updateTimeLeft(withTime time: String)
     
-    
-}
-protocol GameViewDelegate {
 }
 
 

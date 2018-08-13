@@ -61,12 +61,12 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:OptionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "optionCell", for: indexPath) as! OptionCell
-        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = UIColor.clear
         cell.layer.borderWidth = 2
-        cell.layer.borderColor = UIColor.mediumGreen.cgColor
+        cell.layer.borderColor = UIColor.pinkAccent.cgColor
         cell.layer.cornerRadius = cell.frame.width*0.5
         cell.optionLabel.text = "\(GameManager.sharedInstance.selectableOptions[indexPath.item])"
-        cell.optionLabel.textColor = UIColor.mediumGreen
+        cell.optionLabel.textColor = UIColor.pinkAccent
         indexPaths.append(indexPath)
         
         return cell
@@ -105,13 +105,13 @@ extension GameVC: GameDelegate {
         
         switch(status) {
         case .ACTIVE:
-            cell.backgroundColor = UIColor.mediumGreen
-            cell.layer.borderColor = UIColor.white.cgColor
+            cell.backgroundColor = UIColor.pinkAccent
+            cell.layer.borderColor = UIColor.pinkAccent.cgColor
             cell.optionLabel.textColor =  UIColor.white
         case .INACTIVE:
-            cell.backgroundColor = UIColor.white
-            cell.layer.borderColor = UIColor.mediumGreen.cgColor
-            cell.optionLabel.textColor = UIColor.mediumGreen
+            cell.backgroundColor = UIColor.clear
+            cell.layer.borderColor = UIColor.pinkAccent.cgColor
+            cell.optionLabel.textColor = UIColor.pinkAccent
         }
     }
     

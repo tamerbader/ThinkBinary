@@ -117,7 +117,6 @@
 				363B91A920B91887004D0B11 /* Assets.xcassets */,
 				363B91AB20B91887004D0B11 /* LaunchScreen.storyboard */,
 				363B91AE20B91887004D0B11 /* Info.plist */,
-				363B91D620BB41BF004D0B11 /* UIColor+Extension.swift */,
 			);
 			path = ThinkBinary;
 			sourceTree = "<group>";
@@ -162,6 +161,7 @@
 		365E7797212117BE004D8EED /* AdditionalResources */ = {
 			isa = PBXGroup;
 			children = (
+				363B91D620BB41BF004D0B11 /* UIColor+Extension.swift */,
 				365E779A21211860004D8EED /* GameDefs.swift */,
 			);
 			path = AdditionalResources;
