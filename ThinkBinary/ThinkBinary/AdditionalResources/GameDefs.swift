@@ -18,11 +18,17 @@ enum OptionStatus: Int {
     case INACTIVE = 1
 }
 
+enum GameOverMethod: Int {
+    case NUMBEROVER = 0
+    case TIMESUP = 1
+    case HOMEPRESSED = 2
+}
+
 protocol GameDelegate {
     func updateOptions(withIndexPath indexPath: IndexPath, withStatus status: OptionStatus)
     func updateGameCounters()
     func updateForNextTarget()
-    func endGame(withTotalScore score: Int)
+    func endGame(withTotalScore score: Int, withMethod endingMethod: GameOverMethod)
     func updateTimeLeft(withTime time: String)
     
 }

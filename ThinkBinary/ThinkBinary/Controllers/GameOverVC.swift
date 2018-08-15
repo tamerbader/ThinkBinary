@@ -11,12 +11,26 @@ import UIKit
 class GameOverVC: UIViewController {
     @IBOutlet weak var finalScoreLbl: UILabel!
     @IBOutlet weak var bestScoreLbl: UILabel!
+    @IBOutlet weak var gameOverMessage: UILabel!
     
     var finalScoreAmount: Int = 0
     var bestScoreAmount: Int = 0
+    var gameOverMethod: GameOverMethod?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let method = gameOverMethod {
+            switch (method) {
+            case .NUMBEROVER:
+                gameOverMessage.text = "Game Over"
+            case .TIMESUP:
+                gameOverMessage.text = "Time's Up"
+            case .HOMEPRESSED:
+                break
+            }
+        }
+        
         finalScoreLbl.text = "\(finalScoreAmount)"
         
         if (UserDefaults.standard.object(forKey: "highScore") != nil) {

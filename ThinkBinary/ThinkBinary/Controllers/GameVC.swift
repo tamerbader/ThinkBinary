@@ -24,6 +24,7 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     var indexPaths: [IndexPath] = []
     // Total Score Received From Delegate
     var totalScore: Int = 0
+    var endingMethod: GameOverMethod? = nil
    
     @IBOutlet weak var optionsCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -37,8 +38,8 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     @IBAction func didTapHome(_ sender: UIButton) {
-        GameManager.sharedInstance.endGame()
-        self.dismiss(animated: true, completion: nil)
+        GameManager.sharedInstance.endGame(withEnding: .HOMEPRESSED)
+        self.performSegue(withIdentifier: "unwindToHome", sender: nil)
     }
     
     @IBAction func didTapRestart(_ sender: UIButton) {
@@ -50,6 +51,12 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         if segue.identifier == "gameOver" {
             let gameOverVC: GameOverVC = segue.destination as! GameOverVC
             gameOverVC.finalScoreAmount = totalScore
+            
+            guard let endingMethod: GameOverMethod = self.endingMethod else {
+                return
+            }
+            
+            gameOverVC.gameOverMethod = endingMethod
         }
     }
     
@@ -99,6 +106,7 @@ class GameVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
 }
 
 extension GameVC: GameDelegate {
+    
     func updateOptions(withIndexPath indexPath: IndexPath, withStatus status: OptionStatus) {
         print("Updating Option")
         let cell: OptionCell = self.optionsCollectionView.cellForItem(at: indexPath) as! OptionCell
@@ -129,6 +137,21 @@ extension GameVC: GameDelegate {
     func updateForNextTarget() {
         print("Resetting The Board")
         self.optionsCollectionView.reloadData()
+    }
+    
+    func endGame(withTotalScore score: Int, withMethod endingMethod: GameOverMethod) {
+        print("Ending Game")
+        totalScore = score
+        switch endingMethod {
+        case .HOMEPRESSED:
+            self.performSegue(withIdentifier: "unwindToHome", sender: nil)
+        case .NUMBEROVER:
+            self.endingMethod = endingMethod
+            self.performSegue(withIdentifier: "gameOver", sender: nil)
+        case .TIMESUP:
+            self.endingMethod = endingMethod
+            self.performSegue(withIdentifier: "gameOver", sender: nil)
+        }
     }
     
     func endGame(withTotalScore score: Int) {

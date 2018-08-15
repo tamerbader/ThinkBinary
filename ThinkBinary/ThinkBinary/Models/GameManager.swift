@@ -81,10 +81,10 @@ class GameManager {
 
     }
     
-    func endGame() {
+    func endGame(withEnding endingMethod: GameOverMethod) {
         self.gameStatus = .OVER
         self.timer.invalidate()
-        delegate.endGame(withTotalScore: self.totalPoints)
+        delegate.endGame(withTotalScore: self.totalPoints, withMethod: endingMethod)
         print("Game Over")
     }
     
@@ -144,7 +144,7 @@ class GameManager {
         self.currValue = currentTotal
         
         if (self.currValue > targetValue) {
-            endGame()
+            endGame(withEnding: .NUMBEROVER)
         } else if (self.currValue == targetValue) {
             didHitTarget()
         } else {
@@ -159,7 +159,7 @@ class GameManager {
             let timeRemaining: String = timeToString(time: TimeInterval(currTimeLeft))
             delegate.updateTimeLeft(withTime: timeRemaining)
         } else {
-            endGame()
+            endGame(withEnding: .TIMESUP)
         }
     }
     

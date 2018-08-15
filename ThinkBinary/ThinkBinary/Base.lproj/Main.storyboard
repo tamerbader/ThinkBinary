@@ -104,7 +104,7 @@
                         <outlet property="nameLbl" destination="brD-vp-d3N" id="oT5-xG-1CK"/>
                         <outlet property="rateBtn" destination="Je2-cn-H4r" id="0qm-fq-8M4"/>
                         <outlet property="startBtn" destination="emj-ZO-tzc" id="ioW-45-GEJ"/>
-                        <segue destination="DsV-1U-o42" kind="presentation" identifier="goToGame" id="mfy-9D-vjn"/>
+                        <segue destination="DsV-1U-o42" kind="show" identifier="goToGame" id="mfy-9D-vjn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -293,9 +293,11 @@
                         <outlet property="targetValueLbl" destination="nJt-8T-2zZ" id="j4E-v6-S1a"/>
                         <outlet property="timeRemainingLbl" destination="2WV-y8-OAs" id="F4y-Hm-Mzt"/>
                         <segue destination="SWw-n2-qnA" kind="show" identifier="gameOver" id="fAg-7y-zsK"/>
+                        <segue destination="VtU-hx-VSR" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHomeWithSegue:" id="Jm0-Bb-uzr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6p-up-G72" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="VtU-hx-VSR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="960.79999999999995" y="132.26600985221674"/>
         </scene>
@@ -307,8 +309,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCORE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNG-Z5-XnI">
-                                <rect key="frame" x="94" y="46.5" width="133" height="55"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNG-Z5-XnI">
+                                <rect key="frame" x="55.5" y="46.5" width="210" height="55"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -348,6 +350,7 @@
                     <connections>
                         <outlet property="bestScoreLbl" destination="dDc-1d-x62" id="hRr-S2-teG"/>
                         <outlet property="finalScoreLbl" destination="cVi-eW-njA" id="SZn-3l-B83"/>
+                        <outlet property="gameOverMessage" destination="UNG-Z5-XnI" id="ZWx-pW-IQO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnB-YG-UhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
