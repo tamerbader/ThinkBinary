@@ -19,7 +19,28 @@ class GameOverVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ScoreManager.sharedInstance.registerScore(withScore: finalScoreAmount)
+        finalScoreLbl.text = "Your Scored: \(finalScoreAmount)"
+        bestScoreLbl.text = "Best Score: \(ScoreManager.sharedInstance.getHighScore())"
         
+       
+       /*
+        if (UserDefaults.standard.object(forKey: "highScore") != nil) {
+            bestScoreAmount = UserDefaults.standard.integer(forKey: "highScore")
+            if (finalScoreAmount > bestScoreAmount) {
+                bestScoreAmount = finalScoreAmount
+                UserDefaults.standard.set(bestScoreAmount, forKey: "highScore")
+            }
+        } else {
+            bestScoreAmount = finalScoreAmount
+            UserDefaults.standard.set(bestScoreAmount, forKey: "highScore")
+        }
+        
+        bestScoreLbl.text = "\(bestScoreAmount)"*/
+        
+    }
+    
+    func setupView() {
         if let method = gameOverMethod {
             switch (method) {
             case .NUMBEROVER:
@@ -32,19 +53,6 @@ class GameOverVC: UIViewController {
         }
         
         finalScoreLbl.text = "\(finalScoreAmount)"
-        
-        if (UserDefaults.standard.object(forKey: "highScore") != nil) {
-            bestScoreAmount = UserDefaults.standard.integer(forKey: "highScore")
-            if (finalScoreAmount > bestScoreAmount) {
-                bestScoreAmount = finalScoreAmount
-                UserDefaults.standard.set(bestScoreAmount, forKey: "highScore")
-            }
-        } else {
-            bestScoreAmount = finalScoreAmount
-            UserDefaults.standard.set(bestScoreAmount, forKey: "highScore")
-        }
-        
-        bestScoreLbl.text = "\(bestScoreAmount)"
         
     }
     

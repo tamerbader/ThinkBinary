@@ -20,6 +20,7 @@
 		365E7799212117DE004D8EED /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E7798212117DE004D8EED /* GameManager.swift */; };
 		365E779B21211860004D8EED /* GameDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E779A21211860004D8EED /* GameDefs.swift */; };
 		36BB34F420BD0993002A4826 /* GameOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB34F320BD0993002A4826 /* GameOverVC.swift */; };
+		36E69CB52124D87900C63D10 /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E69CB42124D87900C63D10 /* ScoreManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		365E7798212117DE004D8EED /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		365E779A21211860004D8EED /* GameDefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDefs.swift; sourceTree = "<group>"; };
 		36BB34F320BD0993002A4826 /* GameOverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverVC.swift; sourceTree = "<group>"; };
+		36E69CB42124D87900C63D10 /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			children = (
 				363B91D420B925F1004D0B11 /* OptionCell.swift */,
 				365E7798212117DE004D8EED /* GameManager.swift */,
+				36E69CB42124D87900C63D10 /* ScoreManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				363B91D520B925F1004D0B11 /* OptionCell.swift in Sources */,
 				363B91A320B91887004D0B11 /* AppDelegate.swift in Sources */,
 				36BB34F420BD0993002A4826 /* GameOverVC.swift in Sources */,
+				36E69CB52124D87900C63D10 /* ScoreManager.swift in Sources */,
 				365E779B21211860004D8EED /* GameDefs.swift in Sources */,
 				365E7799212117DE004D8EED /* GameManager.swift in Sources */,
 				363B91D320B91CDD004D0B11 /* GameVC.swift in Sources */,
