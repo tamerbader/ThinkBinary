@@ -166,4 +166,9 @@ extension GameVC: GameDelegate {
         self.timeRemainingLbl.text = time
     }
     
+    @IBAction func unwindToGame(segue:UIStoryboardSegue) {
+        GameManager.sharedInstance.resetGame()
+        GameManager.sharedInstance.startGame()
+    }
+    
 }

@@ -12,6 +12,8 @@ class GameOverVC: UIViewController {
     @IBOutlet weak var finalScoreLbl: UILabel!
     @IBOutlet weak var bestScoreLbl: UILabel!
     @IBOutlet weak var gameOverMessage: UILabel!
+    @IBOutlet weak var replayBtn: UIButton!
+    @IBOutlet weak var homeBtn: UIButton!
     
     var finalScoreAmount: Int = 0
     var bestScoreAmount: Int = 0
@@ -22,21 +24,6 @@ class GameOverVC: UIViewController {
         ScoreManager.sharedInstance.registerScore(withScore: finalScoreAmount)
         finalScoreLbl.text = "Your Scored: \(finalScoreAmount)"
         bestScoreLbl.text = "Best Score: \(ScoreManager.sharedInstance.getHighScore())"
-        
-       
-       /*
-        if (UserDefaults.standard.object(forKey: "highScore") != nil) {
-            bestScoreAmount = UserDefaults.standard.integer(forKey: "highScore")
-            if (finalScoreAmount > bestScoreAmount) {
-                bestScoreAmount = finalScoreAmount
-                UserDefaults.standard.set(bestScoreAmount, forKey: "highScore")
-            }
-        } else {
-            bestScoreAmount = finalScoreAmount
-            UserDefaults.standard.set(bestScoreAmount, forKey: "highScore")
-        }
-        
-        bestScoreLbl.text = "\(bestScoreAmount)"*/
         
     }
     
@@ -54,6 +41,13 @@ class GameOverVC: UIViewController {
         
         finalScoreLbl.text = "\(finalScoreAmount)"
         
+    }
+    
+    @IBAction func didTapReplay(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "unwindToGame", sender: nil)
+    }
+    @IBAction func didTapHome(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "unwindToHome", sender: nil)
     }
     
 
