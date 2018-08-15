@@ -13,8 +13,12 @@ class HomeVC: UIViewController {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var startBtn: UIButton!
     
+    @IBOutlet weak var rateBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        startBtn.layer.cornerRadius = startBtn.frame.height / 1.75
+        
+        rateBtn.layer.cornerRadius = rateBtn.frame.height / 1.75
     }
 
     @IBAction func didTapStart(_ sender: UIButton) {
