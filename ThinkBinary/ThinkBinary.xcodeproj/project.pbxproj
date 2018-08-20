@@ -17,6 +17,11 @@
 		363B91D320B91CDD004D0B11 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363B91D220B91CDD004D0B11 /* GameVC.swift */; };
 		363B91D520B925F1004D0B11 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363B91D420B925F1004D0B11 /* OptionCell.swift */; };
 		363B91D720BB41BF004D0B11 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363B91D620BB41BF004D0B11 /* UIColor+Extension.swift */; };
+		364B389C212A937600397445 /* DINProR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 364B3898212A937500397445 /* DINProR.ttf */; };
+		364B389D212A937600397445 /* TTCommonsR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 364B3899212A937500397445 /* TTCommonsR.ttf */; };
+		364B389E212A937600397445 /* TTCommonsM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 364B389A212A937500397445 /* TTCommonsM.ttf */; };
+		364B389F212A937600397445 /* DINProM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 364B389B212A937600397445 /* DINProM.ttf */; };
+		364B38A1212A949A00397445 /* DINProL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 364B38A0212A949A00397445 /* DINProL.ttf */; };
 		365E7799212117DE004D8EED /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E7798212117DE004D8EED /* GameManager.swift */; };
 		365E779B21211860004D8EED /* GameDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E779A21211860004D8EED /* GameDefs.swift */; };
 		36BB34F420BD0993002A4826 /* GameOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB34F320BD0993002A4826 /* GameOverVC.swift */; };
@@ -57,6 +62,11 @@
 		363B91D220B91CDD004D0B11 /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		363B91D420B925F1004D0B11 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		363B91D620BB41BF004D0B11 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		364B3898212A937500397445 /* DINProR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DINProR.ttf; sourceTree = "<group>"; };
+		364B3899212A937500397445 /* TTCommonsR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TTCommonsR.ttf; sourceTree = "<group>"; };
+		364B389A212A937500397445 /* TTCommonsM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TTCommonsM.ttf; sourceTree = "<group>"; };
+		364B389B212A937600397445 /* DINProM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DINProM.ttf; sourceTree = "<group>"; };
+		364B38A0212A949A00397445 /* DINProL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DINProL.ttf; sourceTree = "<group>"; };
 		365E7798212117DE004D8EED /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		365E779A21211860004D8EED /* GameDefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDefs.swift; sourceTree = "<group>"; };
 		36BB34F320BD0993002A4826 /* GameOverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverVC.swift; sourceTree = "<group>"; };
@@ -111,6 +121,7 @@
 		363B91A120B91887004D0B11 /* ThinkBinary */ = {
 			isa = PBXGroup;
 			children = (
+				364B3897212A935B00397445 /* Fonts */,
 				365E7797212117BE004D8EED /* AdditionalResources */,
 				365E779621211781004D8EED /* Controllers */,
 				365E779521211771004D8EED /* Models */,
@@ -139,6 +150,18 @@
 				363B91C420B91887004D0B11 /* Info.plist */,
 			);
 			path = ThinkBinaryUITests;
+			sourceTree = "<group>";
+		};
+		364B3897212A935B00397445 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				364B38A0212A949A00397445 /* DINProL.ttf */,
+				364B389B212A937600397445 /* DINProM.ttf */,
+				364B3898212A937500397445 /* DINProR.ttf */,
+				364B389A212A937500397445 /* TTCommonsM.ttf */,
+				364B3899212A937500397445 /* TTCommonsR.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		365E779521211771004D8EED /* Models */ = {
@@ -278,8 +301,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				363B91AD20B91887004D0B11 /* LaunchScreen.storyboard in Resources */,
+				364B389C212A937600397445 /* DINProR.ttf in Resources */,
 				363B91AA20B91887004D0B11 /* Assets.xcassets in Resources */,
+				364B389D212A937600397445 /* TTCommonsR.ttf in Resources */,
 				363B91A820B91887004D0B11 /* Main.storyboard in Resources */,
+				364B389E212A937600397445 /* TTCommonsM.ttf in Resources */,
+				364B389F212A937600397445 /* DINProM.ttf in Resources */,
+				364B38A1212A949A00397445 /* DINProL.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
