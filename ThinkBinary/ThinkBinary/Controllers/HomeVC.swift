@@ -24,9 +24,24 @@ class HomeVC: UIViewController {
     @IBAction func didTapStart(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToGame", sender: nil)
     }
+    @IBAction func didTapRate(_ sender: UIButton) {
+        rateApp(appId: "id1428253345")
+    }
     
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue) {
+    }
+    
+    fileprivate func rateApp(appId: String) {
+        openUrl("itms-apps://itunes.apple.com/app/" + appId)
+    }
+    fileprivate func openUrl(_ urlString:String) {
+        let url = URL(string: urlString)!
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
     
 }

@@ -76,6 +76,7 @@ class GameManager {
         self.gameStatus = .ACTIVE
         self.currTimeLeft = gameTimeAmount
         nextTarget()
+        delegate.updateTimeLeft(withTime: "00:20")
         delegate.updateGameCounters()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
 
@@ -85,6 +86,7 @@ class GameManager {
         self.gameStatus = .OVER
         self.timer.invalidate()
         delegate.endGame(withTotalScore: self.totalPoints, withMethod: endingMethod)
+        self.resetGame()
         print("Game Over")
     }
     

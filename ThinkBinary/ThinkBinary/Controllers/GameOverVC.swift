@@ -21,6 +21,7 @@ class GameOverVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         ScoreManager.sharedInstance.registerScore(withScore: finalScoreAmount)
         finalScoreLbl.text = "Your Scored: \(finalScoreAmount)"
         bestScoreLbl.text = "Best Score: \(ScoreManager.sharedInstance.getHighScore())"
